@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITI College Rohat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background: #745b5b;
+            color: #ffffff;
+        }
+
+        header {
+            background: linear-gradient(to right, #674496, #6a438f);
+            color: rgb(255, 255, 255);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 30px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: rgb(201, 11, 106);
+        }
+
+        .hero {
+            background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1') center/cover no-repeat;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: rgb(5, 4, 5);
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(120, 121, 121, 0.979);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: #2a8b76;
+            color: rgb(253, 252, 253);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #28579c;
+        }
+
+        section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #000000;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+
+        .about-content img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .course-box {
+            background: rgb(126, 92, 153);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgb(255, 255, 255);
+            transition: 0.3s;
+        }
+
+        .course-box:hover {
+            transform: translateY(-8px);
+        }
+
+        .course-box h3 {
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .facilities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .facility {
+            background: #83476c;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .contact-box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(112, 112, 112, 0.1);
+        }
+
+        .contact-box input,
+        .contact-box textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #757575;
+            border-radius: 5px;
+        }
+
+        .contact-box button {
+            background: #cf0000;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .contact-box button:hover {
+            background: #000000;
+        }
+
+        footer {
+            background: #001f3f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media(max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 35px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <h1>ITI COLLEGE ROHAT</h1>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#courses">COURSES</a></li>
+                <li><a href="#facilities">FACILITIES</a></li>
+                <li><a href="#gallery">GALLERY</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h2>WELCOME TO ITI COLLEGE ROHAT</h2>
+        <p>Skill Development | Technical Education | Bright Future</p>
+        <a href="#contact" class="btn">ADMISSION OPEN</a>
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+        <div class="section-title">
+            <h2>ABOUT COLLEGE</h2>
+        </div>
+
+        <div class="about-content">
+            <div>
+             <img src="college.jpeg" alt="College"/>
+            </div>
+                <h3>ITI College Rohat</h3>
+                <p>
+                    ITI College Rohat एक प्रतिष्ठित तकनीकी संस्थान है जो विद्यार्थियों को आधुनिक तकनीकी शिक्षा और व्यावसायिक प्रशिक्षण प्रदान करता है। हमारा उद्देश्य छात्रों को रोजगार योग्य बनाना और उन्हें उद्योगों के लिए तैयार करना है।
+                    कॉलेज में अनुभवी शिक्षक, आधुनिक लैब, डिजिटल क्लासरूम और बेहतरीन प्लेसमेंट सुविधा उपलब्ध है।
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="courses">
+    <div class="container">
+        <div class="section-title">
+            <h2>OUR TRADES</h2>
+        </div>
+
+        <div class="courses">
+            <div class="course-box">
+                <h3>ELECTRICIAN</h3>
+                <p>विद्युत उपकरणों की मरम्मत और इंस्टॉलेशन का प्रशिक्षण।</p>
+            </div>
+
+            <div class="course-box">
+                <h3>FITTER</h3>
+                <p>मशीन और मैकेनिकल पार्ट्स की फिटिंग एवं रखरखाव।</p>
+            </div>
+
+            <div class="course-box">
+                <h3>DRAFTSMAN CIVIL</h3>
+                <p>भवन एवं सिविल संरचनाओं की ड्रॉइंग, डिजाइनिंग एवं योजना निर्माण</p>
+            </div>
+            
+            <div class="course-box">
+                <h3>WELDER</h3>
+                <p>आधुनिक वेल्डिंग तकनीक का प्रशिक्षण।</p>
+            </div>
+            
+            <div class="course-box">
+                <h3>MOTOR MECHANICAL VEHICLE</h3>
+                <P>मोटर वाहनों की मरम्मत, रखरखाव एवं सर्विसिंग।</P>
+            </div>
+
+            <div class="course-box">
+                <h3>ELECTRONIC MECHANIC</h3>
+                <p>इलेक्ट्रॉनिक उपकरणों की मरम्मत, रखरखाव एवं सर्विसिंग।</p>
+            </div>
+
+            <div class="course-box">
+                <h3>FASHION DESIGN TECHNOLOGY</h3>
+                <p>फैशन परिधानों की डिजाइनिंग, निर्माण एवं रखरखाव।</p>
+            </div>
+
+            <div class="course-box">
+                <h3>COPA</h3>
+                <p>कंप्यूटर एप्लीकेशन, प्रोग्रामिंग एवं ऑफिस मैनेजमेंट कोर्स।</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="facilities">
+    <div class="container">
+        <div class="section-title">
+            <h2>FACILITIES</h2>
+        </div>
+
+        <div class="facilities">
+            <div class="facility">
+                <h3>MODERN LABS</h3>
+                <p>प्रैक्टिकल ट्रेनिंग के लिए आधुनिक लैब।</p>
+            </div>
+
+            <div class="facility">
+                <h3>LIBRARY</h3>
+                <p>तकनीकी पुस्तकों और डिजिटल संसाधनों की सुविधा।</p>
+            </div>
+
+            <div class="facility">
+                <h3>EXPERIENCED FACULTY</h3>
+                <p>अनुभवी और योग्य प्रशिक्षक।</p>
+            </div>
+
+            <div class="facility">
+                <h3>PLACEMENT SUPPORT</h3>
+                <p>छात्रों के लिए रोजगार सहायता।</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="gallery">
+    <div class="container">
+        <div class="section-title">
+            <h2>COLLEGE GALLERY</h2>
+        </div>
+
+        <div class="gallery">
+            <img src="game.jpeg"/> 
+            <img src="playground.jpeg"/>
+            <img src="copa.jpg" alt="Gallery"/>
+            <img src="copalab.jpg" alt="Gallery"/>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>CONTACT US</h2>
+        </div>
+
+        <div class="contact-box">
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Mobile Number" required>
+                <textarea rows="5" placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+            <br>
+            <h3>College Address</h3>
+            <p>ITI College Rohat, Rajasthan, India</p>
+            <p>Email: info@itirohat.com</p>
+           
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 ITI College Rohat | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
